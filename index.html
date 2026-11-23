@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mindful Healing — Sumit Barua</title>
+<meta name="description" content="Mindfulness and coping skills for anxious, overthinking high-achievers. By Sumit Barua, MSW candidate at Boston University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE: calm, certain, premium; few words, heavy type, lots of air
+   IDEA: a printed gallery monograph: black plates, white pages, one portrait
+   PICTURE: Sumit's portrait in grayscale on a black plate, huge stacked name type behind it
+   COLOUR and TYPE: black and white only, one grey; Archivo expanded 900 + Inter
+   LAYOUT: full-bleed black hero, white pages, offer ladder as a stepped staircase */
+:root{color-scheme:light dark;--bg:#fff;--ink:#0a0a0a;--mute:#5c5c5c;--line:#e4e4e4;--soft:#f4f4f4;--plate:#0a0a0a;--on:#fff}
+:root[data-theme=dark]{--bg:#0d0d0d;--ink:#f5f5f5;--mute:#a3a3a3;--line:#262626;--soft:#161616;--plate:#000;--on:#fff}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0d0d0d;--ink:#f5f5f5;--mute:#a3a3a3;--line:#262626;--soft:#161616;--plate:#000}}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 Inter,system-ui,sans-serif;overflow-x:clip;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.disp{font-family:Archivo,Inter,sans-serif;font-stretch:115%;font-weight:900;letter-spacing:-.02em;line-height:1.02;margin:0;text-wrap:balance}
+p{margin:0 0 1em}
+a{color:inherit}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(56px,8vw,120px) max(5vw,18px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:700 16px Inter,sans-serif;text-decoration:none;border:2px solid currentColor;background:transparent;color:inherit;cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.solid{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.plate .btn.solid{background:#fff;color:#0a0a0a;border-color:#fff}
+.plate .btn.ghost{color:#fff}
+.btn:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.plate .btn:focus-visible{outline-color:#fff}
+
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:rgba(10,10,10,.86);backdrop-filter:blur(14px);color:#fff;border-bottom:1px solid #222}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px max(5vw,18px);flex-wrap:wrap}
+.logo{font:900 19px Archivo,sans-serif;font-stretch:120%;text-decoration:none;letter-spacing:-.01em}
+.logo span{font-weight:400}
+nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-weight:600;font-size:15px}
+nav ul a{text-decoration:none;opacity:.75}nav ul a:hover{opacity:1}
+nav .btn{min-height:44px;padding:0 20px;font-size:15px;background:#fff;color:#0a0a0a;border-color:#fff}
+@media(max-width:820px){nav ul{display:none}}
+
+/* hero */
+.plate{background:var(--plate);color:var(--on)}
+.hero{position:relative;overflow:hidden;padding-top:clamp(40px,6vw,80px);padding-bottom:0}
+.hero .grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(24px,4vw,64px);align-items:end}
+.kick{display:inline-block;font-weight:600;font-size:15px;border:1px solid #444;border-radius:999px;padding:6px 14px;margin-bottom:28px;color:#d4d4d4}
+.hero h1{font-size:clamp(44px,7.2vw,96px);line-height:.95}
+.hero h1 em{font-style:normal;-webkit-text-stroke:2px #fff;color:transparent}
+.hero .lede{font-size:clamp(18px,1.6vw,21px);color:#cfcfcf;max-width:34em;margin:28px 0 34px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.proof{display:flex;gap:clamp(18px,3vw,40px);flex-wrap:wrap;margin:44px 0 clamp(40px,6vw,80px);padding-top:26px;border-top:1px solid #2a2a2a}
+.proof b{display:block;font:900 26px Archivo,sans-serif;font-stretch:115%}
+.proof span{font-size:14px;color:#a3a3a3}
+.portrait{position:relative;align-self:stretch;min-height:520px}
+.portrait .ghostname{position:absolute;right:-2%;top:2%;font:900 clamp(90px,13vw,200px)/.82 Archivo,sans-serif;font-stretch:125%;color:#161616;text-align:right;letter-spacing:-.04em;user-select:none}
+.portrait figure{position:absolute;inset:auto 0 0 0;margin:0;height:94%;border-radius:220px 220px 0 0;overflow:hidden;background:linear-gradient(180deg,#2a2a2a,#111);box-shadow:0 -1px 0 #333 inset}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:center top;filter:grayscale(1) contrast(1.08);display:block}
+.portrait .mono{position:absolute;inset:0;display:none;place-items:center;font:900 140px Archivo,sans-serif;font-stretch:125%;color:#2e2e2e}
+.portrait figure.noimg .mono{display:grid}.portrait figure.noimg img{display:none}
+.tag{position:absolute;left:-18px;bottom:48px;background:#fff;color:#0a0a0a;border-radius:18px;padding:14px 18px;box-shadow:0 20px 50px rgba(0,0,0,.5);max-width:240px}
+.tag b{display:block;font:800 16px Inter,sans-serif}.tag span{font-size:13px;color:#555}
+@media(max-width:860px){.hero .grid{grid-template-columns:1fr}.portrait{min-height:440px;order:-1}.portrait figure{left:8%;right:8%}.tag{left:4%}.proof{margin-bottom:48px}}
+
+/* marquee */
+.marq{background:#fff;color:#0a0a0a;border-block:2px solid #0a0a0a;overflow:hidden;white-space:nowrap}
+.marq div{display:inline-block;padding:18px 0;font:900 22px Archivo,sans-serif;font-stretch:118%;animation:run 38s linear infinite}
+.marq i{font-style:normal;margin:0 26px;opacity:.35}
+@keyframes run{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marq div{animation:none}.btn{transition:none}}
+:root[data-theme=dark] .marq{background:#f5f5f5}
+
+/* sections */
+.head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,64px);align-items:end;margin-bottom:clamp(36px,5vw,64px)}
+.head h2{font-size:clamp(34px,4.6vw,58px)}
+.head p{color:var(--mute);font-size:18px;margin:0}
+@media(max-width:760px){.head{grid-template-columns:1fr}}
+.signs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;background:var(--ink);border:2px solid var(--ink);border-radius:28px;overflow:hidden}
+.signs div{background:var(--bg);padding:30px 28px}
+.signs h3{font-size:22px;margin-bottom:10px;font-stretch:108%}
+.signs p{color:var(--mute);margin:0;font-size:16px}
+@media(max-width:860px){.signs{grid-template-columns:1fr 1fr}}@media(max-width:560px){.signs{grid-template-columns:1fr}}
+
+.method{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,2vw,28px)}
+.step{border-top:6px solid var(--ink);padding-top:22px}
+.step .disp{font-size:clamp(54px,6vw,84px);display:block;margin-bottom:6px}
+.step h3{font-size:26px;margin-bottom:10px}
+.step p{color:var(--mute)}
+@media(max-width:760px){.method{grid-template-columns:1fr}}
+
+/* about */
+.about .grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,80px)}
+.about blockquote{margin:0;font:900 clamp(30px,3.6vw,46px)/1.08 Archivo,sans-serif;font-stretch:112%;letter-spacing:-.02em}
+.about blockquote cite{display:block;margin-top:20px;font:600 15px Inter,sans-serif;color:#a3a3a3}
+.about p{color:#cfcfcf}
+.creds{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:0;border-top:1px solid #2a2a2a}
+.creds li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;padding:16px 0;border-bottom:1px solid #2a2a2a}
+.creds b{font-weight:700}.creds span{color:#8f8f8f;font-size:15px;white-space:nowrap}
+@media(max-width:820px){.about .grid{grid-template-columns:1fr}.creds li{grid-template-columns:1fr}.creds span{white-space:normal}}
+
+/* offers staircase */
+.ladder{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;align-items:end}
+.offer{border:2px solid var(--ink);border-radius:26px;padding:28px 24px;display:flex;flex-direction:column;background:var(--bg)}
+.offer:nth-child(1){min-height:420px}.offer:nth-child(2){min-height:470px}.offer:nth-child(3){min-height:560px}.offer:nth-child(4){min-height:520px}
+.offer.star{background:var(--ink);color:var(--bg)}
+.offer .lvl{font-weight:700;font-size:14px;color:var(--mute)}.offer.star .lvl{color:inherit;opacity:.65}
+.offer h3{font-size:25px;margin:12px 0 8px;font-stretch:108%}
+.price{font:900 46px Archivo,sans-serif;font-stretch:115%;margin:6px 0 4px;white-space:nowrap}
+.price small{font:600 15px Inter,sans-serif;opacity:.6}
+.offer ul{padding:0;margin:14px 0 22px;list-style:none;font-size:15px;display:grid;gap:9px}
+.offer li{padding-left:22px;position:relative}
+.offer li::before{content:"";position:absolute;left:0;top:.62em;width:10px;height:2px;background:currentColor}
+.offer .btn{margin-top:auto;width:100%}
+.offer.star .btn{background:var(--bg);color:var(--ink);border-color:var(--bg)}
+.badge{align-self:flex-start;font-weight:800;font-size:13px;background:var(--bg);color:var(--ink);border-radius:999px;padding:5px 12px}
+@media(max-width:1020px){.ladder{grid-template-columns:1fr 1fr}.offer{min-height:0!important}}
+@media(max-width:600px){.ladder{grid-template-columns:1fr}}
+.note{margin-top:22px;font-size:14px;color:var(--mute)}
+
+/* journey */
+.journey{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));counter-reset:j;border-top:2px solid var(--ink)}
+.journey div{padding:26px 22px 0 0}
+.journey b{display:block;font:900 20px Archivo,sans-serif;font-stretch:110%;margin-bottom:6px}
+.journey span{color:var(--mute);font-size:15px}
+@media(max-width:760px){.journey{grid-template-columns:1fr 1fr;gap:10px}}
+
+/* faq */
+.faq{max-width:860px}
+details{border-bottom:2px solid var(--ink);padding:6px 0}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center;min-height:64px;font:800 clamp(19px,2vw,23px) Archivo,sans-serif;font-stretch:108%}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:30px;font-weight:400;transition:transform .2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--mute);max-width:62ch}
+
+/* capture */
+.capture .box{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(28px,5vw,70px);align-items:center}
+.capture h2{font-size:clamp(40px,5.6vw,76px)}
+.capture p{color:#cfcfcf;font-size:18px}
+form{display:grid;gap:12px}
+label{font-weight:600;font-size:14px;color:#bdbdbd}
+input{width:100%;min-height:56px;border-radius:16px;border:2px solid #3a3a3a;background:#141414;color:#fff;font:16px Inter,sans-serif;padding:0 18px}
+input::placeholder{color:#777}
+.ok{display:none;border:2px solid #fff;border-radius:16px;padding:18px;font-weight:600}
+@media(max-width:820px){.capture .box{grid-template-columns:1fr}}
+
+footer{background:var(--plate);color:#a3a3a3;border-top:1px solid #222;font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+footer .disc{max-width:640px}
+footer b{color:#fff}
+
+select{width:100%;min-height:56px;border-radius:16px;border:2px solid #3a3a3a;background:#141414;color:#fff;font:16px Inter,sans-serif;padding:0 14px}
+.err{color:#fff;font-weight:600;font-size:14px;margin:0;min-height:1em}
+.ok{line-height:1.5}.ok b{display:block;font:900 22px Archivo,sans-serif;font-stretch:110%;margin-bottom:6px}
+.ok .btn{margin-top:14px;background:#fff;color:#0a0a0a;border-color:#fff}
+.player .pgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:center}
+.player h2{font-size:clamp(34px,4.6vw,58px)}
+.player .sub{color:var(--mute);margin:14px 0 22px}
+.steps{list-style:none;padding:0;margin:0;border-top:2px solid var(--ink)}
+.steps li{display:grid;grid-template-columns:3.2em minmax(0,1fr);gap:12px;padding:16px 0;border-bottom:1px solid var(--line);opacity:.45;transition:opacity .3s}
+.steps li.on{opacity:1}.steps li.done{opacity:.7}
+.steps b{font:900 22px Archivo,sans-serif;font-stretch:110%}
+.steps strong{display:block;font-weight:700}.steps span{color:var(--mute);font-size:15px}
+.stage{display:grid;justify-items:center;gap:20px}
+.orb{width:min(300px,70vw);aspect-ratio:1;border-radius:50%;border:2px solid var(--ink);display:grid;place-items:center;position:relative;background:radial-gradient(circle,var(--soft) 0 40%,transparent 41%)}
+.orb::before{content:"";position:absolute;inset:18%;border-radius:50%;background:var(--ink);transform:scale(var(--s,.55));transition:transform 4s ease-in-out;opacity:.92}
+.orb span{position:relative;color:var(--bg);font:800 20px Archivo,sans-serif;font-stretch:110%;mix-blend-mode:normal;z-index:1}
+.clock{font:900 64px Archivo,sans-serif;font-stretch:115%;font-variant-numeric:tabular-nums}
+.ctl{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+@media(max-width:820px){.player .pgrid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.orb::before{transition:none}}
+</style>
+</head>
+<body>
+
+<nav aria-label="Main">
+  <div class="wrap">
+    <a class="logo" href="#top">Mindful Healing <span>/ Sumit Barua</span></a>
+    <ul>
+      <li><a href="#method">Method</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#offers">Programs</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn" href="#reset">Free 5-Minute Reset</a>
+  </div>
+</nav>
+
+<header class="plate band hero" id="top">
+  <div class="wrap grid">
+    <div>
+      <span class="kick">For overthinkers, high-achievers and anyone running on empty</span>
+      <h1>Quiet the noise. <em>Feel like you</em> again.</h1>
+      <p class="lede">Simple, science-backed mindfulness and coping skills for anxiety, stress and big life transitions. Taught by a clinical social worker in training who believes everyone deserves to feel heard, not judged.</p>
+      <div class="cta">
+        <a class="btn solid" href="#reset">Get the free 5-Minute Reset</a>
+        <a class="btn ghost" href="#offers">See programs</a>
+      </div>
+      <div class="proof">
+        <div><b>4.0</b><span>GPA, BU School of Social Work</span></div>
+        <div><b>Crisis Text Line</b><span>Trained crisis counselor</span></div>
+        <div><b>CBT · DBT · ACT</b><span>Evidence-based skills</span></div>
+      </div>
+    </div>
+    <div class="portrait" aria-hidden="false">
+      <div class="ghostname" aria-hidden="true">SUMIT<br>BARUA</div>
+      <figure id="fig">
+        <img src="sumit.jpg" alt="Portrait of Sumit Barua" onerror="this.parentNode.classList.add('noimg')">
+        <div class="mono" aria-hidden="true">SB</div>
+      </figure>
+      <div class="tag"><b>Sumit Barua</b><span>MSW Candidate, Clinical Practice · Boston University</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="marq" aria-hidden="true"><div>
+  Compassion<i>●</i>Connection<i>●</i>Growth<i>●</i>Mindfulness<i>●</i>Emotional regulation<i>●</i>Self-compassion<i>●</i>Resilience<i>●</i>
+  Compassion<i>●</i>Connection<i>●</i>Growth<i>●</i>Mindfulness<i>●</i>Emotional regulation<i>●</i>Self-compassion<i>●</i>Resilience<i>●</i>
+</div></div>
+
+<section class="band">
+  <div class="wrap">
+    <div class="head">
+      <h2>You look fine on the outside. Inside, it's loud.</h2>
+      <p>If any of this sounds familiar, you're not broken. Your nervous system is overworked, and it can learn a new rhythm.</p>
+    </div>
+    <div class="signs">
+      <div><h3>Your mind won't switch off</h3><p>Replaying conversations at 2am, rehearsing worst cases, planning for things that may never happen.</p></div>
+      <div><h3>You're always "on"</h3><p>Grades, deadlines, career, family. You hold it all together, and rest feels like something you have to earn.</p></div>
+      <div><h3>Small things feel huge</h3><p>One email or one comment can knock out your whole day before you know why.</p></div>
+      <div><h3>You're in a big transition</h3><p>New city, new job, a breakup, graduation. The ground moved and you haven't found your footing yet.</p></div>
+      <div><h3>You're hard on yourself</h3><p>The voice in your head is harsher than anything you'd ever say to a friend.</p></div>
+      <div><h3>You want tools, not just talk</h3><p>You want practical skills you can use today, in a meeting, on the train, before bed.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="method" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="head">
+      <h2>The Notice · Name · Navigate method</h2>
+      <p>Three steps drawn from mindfulness-based, cognitive behavioral and DBT skills work, turned into a routine you can actually keep.</p>
+    </div>
+    <div class="method">
+      <div class="step"><span class="disp">Notice</span><h3>Catch it early</h3><p>Learn to spot the first signals of stress in your body and thoughts, before they snowball into a spiral.</p></div>
+      <div class="step"><span class="disp">Name</span><h3>Make sense of it</h3><p>Put words to what you feel. Naming an emotion turns down its volume and gives you room to choose.</p></div>
+      <div class="step"><span class="disp">Navigate</span><h3>Respond, don't react</h3><p>Use grounding, reframing and self-compassion skills to move through hard moments with steadiness.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="plate band about" id="about">
+  <div class="wrap grid">
+    <div>
+      <blockquote>“Meaningful change begins when people feel heard, valued, and understood.”<cite>Sumit Barua</cite></blockquote>
+    </div>
+    <div>
+      <p>Hi, I'm Sumit. I'm completing my Master of Social Work at Boston University, specializing in behavioral health, and I'm in my graduate clinical internship at EMDR Therapy Solutions &amp; Wellness, working under clinical supervision.</p>
+      <p>Before that I supported people in real time as a crisis counselor, worked with young people on coping and resilience, and earned a master's in Health Informatics. I bring that mix of heart and structure to everything I teach: warm, practical, and grounded in evidence.</p>
+      <ul class="creds">
+        <li><b>MSW, Clinical Practice, Behavioral Health</b><span>Boston University · 2025–2027</span></li>
+        <li><b>Clinical Social Work Intern</b><span>EMDR Therapy Solutions &amp; Wellness</span></li>
+        <li><b>Social Work Intern, youth programs</b><span>MissionSAFE</span></li>
+        <li><b>Crisis Intervention Counselor</b><span>Crisis Text Line</span></li>
+        <li><b>MS, Health Informatics</b><span>Northeastern University</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="offers">
+  <div class="wrap">
+    <div class="head">
+      <h2>Start free. Go as deep as you need.</h2>
+      <p>Every step builds on the one before it, so you can begin with five minutes and grow into a full practice.</p>
+    </div>
+    <div class="ladder">
+      <article class="offer">
+        <span class="lvl">Step 1 · Free</span>
+        <h3>The 5-Minute Reset</h3>
+        <div class="price">$0</div>
+        <ul><li>One-page grounding guide</li><li>5-minute guided audio</li><li>Use it anywhere, anytime</li></ul>
+        <a class="btn" href="#reset" data-offer="reset">Get it free</a>
+      </article>
+      <article class="offer">
+        <span class="lvl">Step 2 · Self-guided</span>
+        <h3>Calm Mind Toolkit</h3>
+        <div class="price">$27</div>
+        <ul><li>7-day skills workbook</li><li>7 guided mindfulness audios</li><li>Thought and mood trackers</li><li>Overthinking interrupt cards</li><li>Lifetime access</li></ul>
+        <a class="btn" href="#reset" data-offer="toolkit">Get the toolkit</a>
+      </article>
+      <article class="offer star">
+        <span class="badge">Most complete</span>
+        <span class="lvl" style="margin-top:14px">Step 3 · Live small group</span>
+        <h3>The Mindful Reset: 8 weeks</h3>
+        <div class="price">$497 <small>or 3 × $179</small></div>
+        <ul><li>8 live weekly 75-min sessions</li><li>Small cohort, 12 people max</li><li>Full skills curriculum: mindfulness, regulation, reframing, self-compassion</li><li>Calm Mind Toolkit included</li><li>Private community between sessions</li><li>Replays of every session</li></ul>
+        <a class="btn" href="#reset" data-offer="cohort">Join the waitlist</a>
+      </article>
+      <article class="offer">
+        <span class="lvl">For organizations</span>
+        <h3>Workshops for teams &amp; campuses</h3>
+        <div class="price">$1,500<small> +</small></div>
+        <ul><li>Stress, burnout &amp; resilience sessions</li><li>For student groups, clubs and workplaces</li><li>60–90 minutes, in person or online</li><li>Takeaway skills guide for every attendee</li></ul>
+        <a class="btn" href="#reset" data-offer="workshop">Request a workshop</a>
+      </article>
+    </div>
+    <p class="note">All programs are educational and skills-based. They are not therapy and not a substitute for diagnosis or treatment.</p>
+  </div>
+</section>
+
+<section class="band" style="background:var(--soft)">
+  <div class="wrap">
+    <div class="head"><h2>How it works</h2><p>No pressure, no guesswork. You'll always know what comes next.</p></div>
+    <div class="journey">
+      <div><b>Get the Reset</b><span>Free guide and audio, straight to your inbox.</span></div>
+      <div><b>Practice for 7 days</b><span>Short daily emails with one new skill each day.</span></div>
+      <div><b>Go deeper</b><span>Add the Toolkit when you want structure.</span></div>
+      <div><b>Join a cohort</b><span>Learn live, with people who get it.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="faq">
+  <div class="wrap faq">
+    <h2 style="font-size:clamp(34px,4.6vw,58px);margin-bottom:24px">Questions</h2>
+    <details><summary>Is this therapy?</summary><p>No. These are educational programs that teach evidence-informed coping and mindfulness skills. They don't diagnose or treat any condition. If you're looking for therapy, I'm happy to point you toward licensed providers.</p></details>
+    <details><summary>Who is this for?</summary><p>Students, young professionals and anyone dealing with everyday stress, overthinking, burnout or a life transition who wants practical tools they can use right away.</p></details>
+    <details><summary>Do I need any experience with meditation?</summary><p>None at all. Every practice is short, guided and explained in plain language. If you can breathe, you can start.</p></details>
+    <details><summary>What if I can't make a live session?</summary><p>Every session of The Mindful Reset is recorded, and the community stays open between calls so you never fall behind.</p></details>
+    <details><summary>What if I'm in crisis?</summary><p>These programs aren't designed for crisis support. In the US, call or text <b>988</b> any time, or text HOME to <b>741741</b> to reach Crisis Text Line. If you're in immediate danger, call 911.</p></details>
+  </div>
+</section>
+
+<section class="plate band capture" id="reset">
+  <div class="wrap box">
+    <div>
+      <h2>Five minutes to a calmer mind.</h2>
+      <p>Get the free 5-Minute Reset: a one-page grounding guide and a short guided audio you can use the next time your thoughts start racing.</p>
+    </div>
+    <div>
+      <form id="f" novalidate>
+        <label for="nm">First name</label>
+        <input id="nm" name="name" autocomplete="given-name" placeholder="Your first name">
+        <label for="em">Email</label>
+        <input id="em" name="email" type="email" autocomplete="email" placeholder="you@email.com" required>
+        <label for="of">I'm interested in</label>
+        <select id="of" name="offer">
+          <option value="reset">The free 5-Minute Reset</option>
+          <option value="toolkit">Calm Mind Toolkit · $27</option>
+          <option value="cohort">The Mindful Reset, 8 weeks · $497</option>
+          <option value="workshop">A workshop for my team or campus</option>
+        </select>
+        <p class="err" id="err" role="alert"></p>
+        <button class="btn solid" type="submit" style="margin-top:4px">Send me the Reset</button>
+      </form>
+      <div class="ok" id="ok" role="status" tabindex="-1"></div>
+    </div>
+  </div>
+</section>
+
+<section class="band player" id="practice" hidden>
+  <div class="wrap pgrid">
+    <div>
+      <h2>Your 5&#8209;Minute Reset</h2>
+      <p class="sub">Find a comfortable seat. Press start and follow the circle. Each step lasts one minute.</p>
+      <ol class="steps" id="steps"></ol>
+    </div>
+    <div class="stage">
+      <div class="orb" id="orb"><span id="cue">Ready</span></div>
+      <div class="clock" id="clock">5:00</div>
+      <div class="ctl">
+        <button class="btn solid" id="go" type="button">Start</button>
+        <button class="btn" id="rs" type="button">Restart</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="band" style="padding-block:40px">
+  <div class="wrap">
+    <div><b>Mindful Healing</b> · Sumit Barua, MSW Candidate<br>Boston, MA · <a href="https://www.instagram.com/mindfulhealingmsw/">@mindfulhealingmsw</a> · <a href="https://www.linkedin.com/in/sumitbaruasw/">LinkedIn</a></div>
+    <div class="disc">Educational content only. Not therapy, medical advice or crisis support. In a crisis in the US, call or text 988.</div>
+  </div>
+</footer>
+
+<script>
+{
+  const $=id=>document.getElementById(id);
+  const f=$('f'),ok=$('ok'),em=$('em'),nm=$('nm'),of=$('of'),err=$('err');
+  const msgs={reset:'Your free Reset is unlocked below. Start it whenever you need a pause.',
+    toolkit:'You\'re first in line for the Calm Mind Toolkit. While you wait, your free Reset is unlocked below.',
+    cohort:'You\'re on the waitlist for the next Mindful Reset cohort. Your free Reset is unlocked below.',
+    workshop:'Thanks! Sumit will follow up about a workshop for your group. Your free Reset is unlocked below.'};
+  document.querySelectorAll('[data-offer]').forEach(a=>a.addEventListener('click',()=>{of.value=a.dataset.offer}));
+  f.addEventListener('submit',e=>{
+    e.preventDefault();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em.value.trim())){err.textContent='Please enter a valid email address.';em.focus();return;}
+    err.textContent='';
+    const n=nm.value.trim();
+    ok.innerHTML='<b>'+(n?'Welcome, '+n.replace(/[<>&"]/g,'')+'.':'Welcome.')+'</b>'+msgs[of.value]+'<br><a class="btn" href="#practice">Start the Reset</a><br><small style="opacity:.6">Preview: at launch this form connects to an email platform to send the guide and emails.</small>';
+    f.style.display='none';ok.style.display='block';$('practice').hidden=false;ok.focus();
+  });
+  const steps=[['Breathe','Slow breathing: in for 4, hold for 4, out for 6.'],['Ground','Name 5 things you see, 4 you hear, 3 you can touch.'],['Scan','Move attention from your forehead down to your feet. Soften each part.'],['Name it','Quietly name what you feel: “This is worry.” Let it be there.'],['Be kind','Say to yourself what you\'d tell a friend: “It makes sense. I\'m okay.”']];
+  $('steps').innerHTML=steps.map((s,i)=>'<li><b>'+(i+1)+'</b><div><strong>'+s[0]+'</strong><span>'+s[1]+'</span></div></li>').join('');
+  const lis=[...document.querySelectorAll('#steps li')],orb=$('orb'),cue=$('cue'),clock=$('clock'),go=$('go');
+  const TOTAL=300;let t=0,timer=null;
+  const breath=s=>{const c=s%14;return c<4?['Breathe in',1]:c<8?['Hold',1]:['Breathe out',.55]};
+  const render=()=>{const left=TOTAL-t,step=Math.min(4,Math.floor(t/60));
+    clock.textContent=Math.floor(left/60)+':'+String(left%60).padStart(2,'0');
+    lis.forEach((l,i)=>{l.classList.toggle('on',i===step&&t>0);l.classList.toggle('done',i<step)});
+    if(t===0){cue.textContent='Ready';orb.style.setProperty('--s',.55);return}
+    if(left<=0){cue.textContent='Well done';orb.style.setProperty('--s',.55);lis.forEach(l=>l.classList.add('done'));return}
+    if(step===0){const b=breath(t);cue.textContent=b[0];orb.style.setProperty('--s',b[1])}
+    else{cue.textContent=steps[step][0];orb.style.setProperty('--s',(t%10)<5?.9:.6)}};
+  const stop=()=>{clearInterval(timer);timer=null;go.textContent=t>0&&t<TOTAL?'Resume':'Start'};
+  go.addEventListener('click',()=>{if(timer){stop();return}if(t>=TOTAL)t=0;go.textContent='Pause';
+    timer=setInterval(()=>{t++;render();if(t>=TOTAL){stop();go.textContent='Start again'}},1000);render()});
+  $('rs').addEventListener('click',()=>{stop();t=0;go.textContent='Start';render()});
+  render();
+}
+</script>
+</body>
+</html>
